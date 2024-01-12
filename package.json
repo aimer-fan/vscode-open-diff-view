@@ -1,7 +1,7 @@
 {
-  "name": "vscode-extension",
-  "displayName": "vscode-extension",
-  "description": "vscode extension tutorial",
+  "name": "open-diff-view",
+  "displayName": "Quick Open Diff View",
+  "description": "Quick open diff view base on active text editor.",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.85.0"
@@ -14,10 +14,18 @@
   "contributes": {
     "commands": [
       {
-        "command": "vscode-extension.helloWorld",
-        "title": "Hello World"
+        "command": "open-diff-view.quickDiff",
+        "title": "Open Diff View"
       }
-    ]
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "open-diff-view.quickDiff",
+          "when": "resourceScheme == file"
+        }
+      ]
+    }
   },
   "scripts": {
     "vscode:prepublish": "pnpm run compile",
